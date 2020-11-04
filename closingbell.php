@@ -1,3 +1,5 @@
+$slack_webhook_url = "https://hooks.slack.com/services/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"
+
 $command = $_POST['command'];
 $therabuddy = $_POST['text'];
 $token = $_POST['token'];
