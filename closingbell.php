@@ -3,6 +3,7 @@ $slack_webhook_url = "https://hooks.slack.com/services/T01AWSVBM52/B01E10HA2CS/7
 $command = $_POST['command'];
 $therabuddy = $_POST['text'];
 $token = $_POST['token'];
+$channel = $_POST['channel_id'];
 
 if($token != 'BPAgtuWlF4WZNr0sp8WYstx7')
   $msg = "The token for the slash command doesn't match. Check your script.";
@@ -15,8 +16,7 @@ $msg = "We just successfully closed another case! Congratulations " .$therabuddy
 
 $data = array(
 	"username" => "Closing Bell",
-	"channel" => $_POST['channel_id'],
-	"text" => $msg, //probably $msg?
+	"text" => $msg, 
 );
 
 $json_string = json_encode($data);
