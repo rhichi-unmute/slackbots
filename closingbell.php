@@ -13,4 +13,22 @@ $user_agent = "Closing Bell (https://github.com/rhichi-unmute/slackbots/closingb
 
 $msg = "We just successfully closed another case! Congratulations " .$therabuddy ", and thank you for another job well done! :party-parrot:"
 
-echo $reply
+$data = array(
+	"username" => "Closing Bell",
+	"channel" => $_POST['channel_id'],
+	"text" => $msg, //probably $msg?
+);
+
+$json_string = json_encode($data);
+$slack_call = curl_init($slack_webhook_url);
+curl_setopt($slack_call, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($slack_call, CURLOPT_POSTFIELDS, $json_string);
+curl_setopt($slack_call, CURLOPT_CRLF, true);
+curl_setopt($slack_call, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($slack_call, CURLOPT_HTTPHEADER, array(
+    "Content-Type: application/json",
+    "Content-Length: " . strlen($json_string))
+);
+
+$result = curl_exec($slack_call);
+curl_close($slack_call);
