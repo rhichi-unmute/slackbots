@@ -11,6 +11,6 @@ if($token != 'BPAgtuWlF4WZNr0sp8WYstx7')
 
 $user_agent = "Closing Bell (https://github.com/rhichi-unmute/slackbots/closingbell; rhichi@unmute.today)";
 
-$reply = "We just successfully closed another case! Congratulations " .$therabuddy ", and thank you for another job well done! :party-parrot:"
+$msg = "We just successfully closed another case! Congratulations " .$therabuddy ", and thank you for another job well done! :party-parrot:"
 
 echo $reply
